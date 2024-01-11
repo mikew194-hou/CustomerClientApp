@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-import {EmpAddEditComponent} from './components/emp-add-edit/emp-add-edit.component';
+import {CusAddEditComponent} from './components/cus-add-edit/cus-add-edit.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
@@ -27,7 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
-    EmpAddEditComponent,
+    CusAddEditComponent,
     HomeComponent
   ],
   imports: [

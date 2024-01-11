@@ -1,11 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { EmpAddEditComponent } from '../emp-add-edit/emp-add-edit.component';
-import { EmployeeService } from '../../employee.service';
+import { CusAddEditComponent } from '../cus-add-edit/cus-add-edit.component';
+import { CustomerService } from '../../customer.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-
 
 @Component({
   selector: 'app-home',
@@ -18,13 +17,8 @@ export class HomeComponent implements OnInit {
     'firstName',
     'lastName',
     'email',
-    'dob',
-    'gender',
-    'education',
-    'company',
-    'experience',
-    'salary',
-    'action',
+    'created',
+    'updated'
   ];
   
   dataSource!: MatTableDataSource<any>;
@@ -34,26 +28,26 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
-    private empService: EmployeeService,
+    private cusService: CustomerService,
   ) {}
 
   ngOnInit(): void {
-    this.getEmployeeList();
+    this.getCustomerList();
   }
 
-  openAddEditEmployeeDialog() {
-    const dialogRef = this.dialog.open(EmpAddEditComponent);
+  openAddEditCustomerDialog() {
+    const dialogRef = this.dialog.open(CusAddEditComponent);
     dialogRef.afterClosed().subscribe({
       next: (val) => {
         if (val) {
-          this.getEmployeeList();
+          this.getCustomerList();
         }
       },
     });
   }
 
-  getEmployeeList() {
-    this.empService.getEmployeeList().subscribe({
+  getCustomerList() {
+    this.cusService.getCustomerList().subscribe({
       next: (res) => {
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.sort = this.sort;
@@ -75,13 +69,13 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  deleteEmployee(id: number) {
+  deleteCustomer(id: number) {
     let confirm = window.confirm("Do you want to delete this employee?");
     if(confirm) {
-      this.empService.deleteEmployee(id).subscribe({
+      this.cusService.deleteCustomer(id).subscribe({
         next: (res) => {
-          alert('Employee deleted!');
-          this.getEmployeeList();
+          alert('Customer deleted!');
+          this.getCustomerList();
         },
         error: (err) => {
           console.log(err);
@@ -91,14 +85,14 @@ export class HomeComponent implements OnInit {
   }
 
   openEditForm(data: any) {
-    const dialogRef = this.dialog.open(EmpAddEditComponent, {
+    const dialogRef = this.dialog.open(CusAddEditComponent, {
       data,
     });
 
     dialogRef.afterClosed().subscribe({
       next: (val) => {
         if (val) {
-          this.getEmployeeList();
+          this.getCustomerList();
         }
       }
     });
