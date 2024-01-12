@@ -17,13 +17,14 @@ export class CusAddEditComponent implements OnInit {
     private formBuilder: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: any,
   ) {
+    console.log("Data:")
     this.cusForm = this.formBuilder.group({
-      id: ['', Validators.required],
+      id: [''],
       FirstName: ['', Validators.required],
       LastName: ['', Validators.required],
       Email: ['', Validators.required],
       CreatedDate: ['', Validators.required],
-      LastUpdated: ['', Validators.required],
+      LastUpdated: ['']
     });
   }
 
@@ -32,6 +33,7 @@ export class CusAddEditComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log("Submited");
     if (this.cusForm.valid) {
       if (this.data) {
         this.cusService
@@ -47,6 +49,7 @@ export class CusAddEditComponent implements OnInit {
             },
           });
       } else {
+        console.log("Added");
         this.cusService.addCustomer(this.cusForm.value).subscribe({
           next: (val: any) => {
             alert('Customer added successfully!');

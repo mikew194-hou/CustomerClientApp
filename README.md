@@ -1,7 +1,16 @@
-# CustomerClientApp
-https://hackernoon.com/how-to-build-an-employee-management-crud-app-with-angular-and-material-ui
+Note: 
+This app is for demonstration only, it does not use security or follow best practices, I took a short cut and did not create a model for the app and feed the data directly to grid's data source. This would not work for anything more than this demo.
 
+I have a seperate app for the API, but have not used it, I use JSON Server to prototype, my intention was to use it, but I ran into so many issues with my laptop. 
+
+I used Material for its UI Components, Grid and Datepicker, because its free. 
+
+# CustomerClientApp
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
+
+# install JSON Serve 
+and run the following in a seperat terminal:
+ json-server --watch db.json
 
 ## Development server
 

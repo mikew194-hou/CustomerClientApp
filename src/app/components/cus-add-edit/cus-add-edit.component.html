@@ -29,21 +29,19 @@
       </mat-form-field>
     </div>
     <div class="row">
-       <!-- <mat-form-field appearance="outline">
+       <mat-form-field appearance="outline">
         <mat-label>Last Updated:</mat-label>
-        <input title="lastupdated" matInput [matDatepicker]="picker" formControlName="LastUpdated"/>
+        <input title="lastupdated" matInput [matDatepicker]="picker2" formControlName="LastUpdated"/>
         <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field> -->
-      <mat-form-field appearance="outline">
-        <mat-label>Updated:</mat-label>
-        <input matInput type="email" formControlName="LastUpdated">
+        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
       </mat-form-field>
-    </div>   
-  </div>
+    </div>
+  </div>   
+  <div class="row">
     <div mat-dialog-actions class="action-btns">
         <button style="margin: 10px;" mat-raised-button color="accent" type="submit">{{data ? 'Update': 'Save'}}</button>
         <button mat-raised-button type="button" color="warn" [mat-dialog-close]="false">Cancel</button>
     </div>
+  </div>
 </form>
